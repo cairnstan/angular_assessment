@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Assessment</title>
+    <!-- Library -->
+    <script src="angular.min.js"></script>
+    <!-- Development -->
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="MainController as main">
+
+
+
+    <label>Type Message Here</label>
+    <input type="text" ng-model="main.message" ng-value="main.message" />
+
+    <button ng-click="main.enterMessage()"/>Click Me</button>
+
+    <div ng-show="main.messageEntered">
+      <p ng-model="main.preMessage">Message is: {{main.messages[main.messages.length-1]}}</p>
+    </div>
+    <div ng-show="main.previousMessage">
+      <p>Previous messages are: </p>
+      <ul>
+        <li ng-repeat="message in main.messages track by $index">
+          {{message}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
